@@ -1,0 +1,36 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        {% include 'homepage/search.html' %}
+    </div>
+
+    <div class="col-lg-12">
+        <div class="row">
+            {% if q %}
+                {% for item in q %}
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <div class="card" style="width: 18rem;margin-top:30px;">
+                            <img src="{{ item.img }}">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ item.name}}</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item text-left">delivering time: {{ item.delivering}} </li>
+                                </ul>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item text-center"><a href="#" class="card-link">Go this page</a></li>
+                            </ul>
+                        </div>
+                      </div>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
